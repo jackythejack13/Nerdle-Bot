@@ -33,4 +33,4 @@ client.on('message', message => {
 client.on('ready', () => console.log('Launched!'));
 
 
-client.login('');
+client.login('MzQ1ODU3NTY0NjA2NzI2MTQ0.DgKwCw.gJ5k28ah-sWXapksbpP7JCNlPns');
