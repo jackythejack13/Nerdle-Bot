@@ -33,4 +33,4 @@ client.on('message', message => {
 client.on('ready', () => console.log('Launched!'));
 
 
-client.login('token');
+client.login(process.env.BOT_TOKEN);
