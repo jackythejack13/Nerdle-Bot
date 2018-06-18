@@ -1,36 +1,24 @@
-// Require Packages
-const Discord = require('discord.js');
-const client = new Discord.Client();
+const Discord = require("discord.js");
+const bot = new Discord.Client({disableEveryone: true});
 
-// Constant Variables
-const prefix = '/';
-const ownerID = '183527322236878850';
-
-client.on('message', message => {
-
-	// Variables
-	let args = message.content.slice(prefix.length).trim().split(' ');
-	let cmd = args.shift().toLowerCase();
-
-	// Return Statements
-	if (message.author.bot) return;
-	if (!message.content.startsWith(prefix)) return;
-
-	// Command Handler
-	try {
-
-		// Auto-Reload
-		delete require.cache[require.resolve(`./commands/${cmd}.js`)];
-
-		let commandFile = require(`./commands/${cmd}.js`);
-		commandFile.run(client, message, args);
-
-	} catch (e) {
-		console.log(e.stack);
-	}
+bot.on("ready", async () => {
+  console.log(`${bot.user.username} is online!`);
+  bot.user.setActivity(`Hey, Wassup!`);
 });
 
-client.on('ready', () => console.log('Launched!'));
+bot.on("message", async message => {
 
+  if (message.author.bot) return;
+  if (message.channel.type === "dm") return;
 
-client.login(process.env.TOKEN);
+  let prefix = '/';
+  let messageArray = message.content.split(" ");
+  let cmd = messageArray[0];
+  let args = messageArray.slice(1);
+
+  if (cmd === `${prefix}ping`){
+    message.channel.send("Pong!");
+  }
+});
+
+bot.login(process.env.TOKEN);
