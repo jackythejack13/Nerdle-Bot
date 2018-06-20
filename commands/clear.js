@@ -1,12 +1,8 @@
-exports.run = async(client, message, args) => {
-
-   const deleteCount = parseInt(args[0], 10);
-    
-    if(!deleteCount || deleteCount < 2 || deleteCount > 100)
-      return message.reply("Please provide a number between 2 and 100 for the number of messages to delete");
-    
-    const fetched = await message.channel.fetchMessages({limit: deleteCount});
-    message.channel.bulkDelete(fetched)
-      .catch(error => message.reply(`Couldn't delete messages because of: ${error}`));
-
+exports.run = async (client, message, args) => {
+   
+   if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`Sorry, it doesn't look like you can use that ${message.author.username}.`);
+   if(!args[0]) return message.channel.send("oof");
+   message.channel.bulkDelete(args[0]).then(() => {
+      message.channel.send(`I have deleted `${args[0]}` messages!`).then(msg => msg.delete(5000));
+   });
 }
