@@ -33,9 +33,9 @@ client.on('message', async message => {
 		console.log(e.stack);
 	}
 	
-client.on('guildMemberAdd', member => {
-  member.guild.channels.find('name', 'general').send(`Welcome to **${guild.name}**, ${member.user.username}! We now have ${guild.memberCount} members.`);
-});
+//client.on('guildMemberAdd', member => {
+  //member.guild.channels.find('name', 'general').send(`Welcome to **${guild.name}**, ${member.user.username}! We now have ${guild.memberCount} members.`);
+//});
 	
 });
 
