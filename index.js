@@ -34,9 +34,4 @@ client.on('message', message => {
 	}
 });
 
-  if (cmd === `${prefix}ping`){
-    message.channel.send("Pong!");
-  }
-});
-
 client.login(process.env.TOKEN);
