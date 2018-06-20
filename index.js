@@ -32,12 +32,12 @@ client.on('message', async message => {
 	} catch (e) {
 		console.log(e.stack);
 	}
-});
-
+	
 client.on('guildMemberAdd', member => {
   const channel = member.guild.channels.find('name', 'general');
   if (!channel) return;
   channel.send(`Welcome to **${guild.name}**, ${member}! We now have ${guild.memberCount} members.`);
+});
 });
 
 client.login(process.env.TOKEN);
