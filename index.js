@@ -34,9 +34,7 @@ client.on('message', async message => {
 	}
 	
 client.on('guildMemberAdd', member => {
-  const channel = member.guild.channels.find('name', 'general');
-  if (!channel) return;
-  message.channel.send(`Welcome to **${guild.name}**, ${member}! We now have ${guild.memberCount} members.`);
+  member.guild.channels.find('name', 'general').send(`Welcome to **${guild.name}**, ${member.user.username}! We now have ${guild.memberCount} members.`);
 });
 	
 });
