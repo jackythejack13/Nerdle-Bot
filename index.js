@@ -10,7 +10,7 @@ client.on("ready", async () => {
 const prefix = '!!';
 const ownerID = '183527322236878850';
 
-client.on('message', message => {
+client.on('message', async message => {
 	
 	// Variables
 	let args = message.content.slice(prefix.length).trim().split(' ');
