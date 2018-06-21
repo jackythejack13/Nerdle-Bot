@@ -4,17 +4,11 @@ exports.run = aysnc(client, message, args) => {
 
   if (args.length === 0)
   return message.reply('**Invalid Format:** `!Poll <Question>`')
-
-  const embed = new Discord.RichEmbed()
-  .setTitle("A Poll Has Been Started!")
-  .setColor("#5599ff")
-  .setDescription(`${question}`)
-  .setFooter(`Poll Started By: ${message.author.username}`, `${message.author.avatarURL}`)
-
-  message.channel.send({embed})
-  message.react('👍')
-  .then(() => message.react('👎'))
-  .then(() => message.react('🤷'))
+  
+  message.channel.send(`<:blobconcil:459168698033504278> **${question}**`)
+  
+  message.react('<:Upvote:422535662470955009>')
+  .then(() => message.react('<:Downvote:422535673984319498>'))
   .catch(() => console.error('Emoji failed to react.'));
 
 }
