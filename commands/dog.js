@@ -24,8 +24,6 @@ exports.run = async(client, message, args) => {
               console.log(`In dog: ${err}`);
             });
           }
-        });
-      };
       if(details.input === '')
       {
         sendDog();
