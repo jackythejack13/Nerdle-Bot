@@ -6,8 +6,8 @@ exports.run = async(client, message, args) => {
   let minutes = Math.floor(totalSeconds / 60);
   let seconds = totalSeconds % 60;
   
-  let uptime = `${hours} hr, ${minutes} mins, ${seconds} secs`;
+  let uptime = `${days} d, ${hours} hr, ${minutes} mins, ${seconds} secs`;
   
-  message.channel.send(`:stopwatch: Uptime: \`1 hr, 44 mins, 12 secs``);
+  message.channel.send(`:stopwatch: Uptime: \`${uptime}``);
   
 }
