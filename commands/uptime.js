@@ -1,31 +1,16 @@
 exports.run = async(client, message, args) => {
 
-	setInterval(function() {
-		upSecs = upSecs + 1
-		if (upSecs >= 60) {
-			var userdisplay = states[Math.floor(Math.random() * states.length)];
-			c.user.setStatus(userstatus)
-			c.user.setGame(userdisplay)
-			upSecs = 0
-			upMins = upMins + 1
-		}
-		if (upMins >= 60) {
-			upMins = 0
-			upHours = upHours + 1
-		}
-		if (upHours >= 24) {
-			upHours = 0
-			upDays = upDays + 1
-
-		}
-
-
-	}, 1000)
-
-
-
-})
-
-message.channel.send("```Current Uptime: \n" + upDays + " Days \n" + upHours + " Hours \n" + upMins + " Minutes \n" + upSecs + " Seconds```");
+function uptime() {
+  let message = ':stopwatch: Uptime: ';
+  const totalSeconds = process.uptime();
+  const days = Math.floor((totalSeconds % 31536000) / 86400);
+  const hours = _.parseInt(totalSeconds / 3600) % 24;
+  const minutes = _.parseInt(totalSeconds / 60) % 60;
+  const seconds = Math.floor(totalSeconds % 60);
+  message += days >= 1 ? `${days}d ` : '';
+  message += hours < 10 ? `0${hours}:` : `${hours}:`;
+  message += minutes < 10 ? `0${minutes}:` : `${minutes}:`;
+  message += seconds < 10 ? `0${seconds}` : `${seconds}`;
+  return Promise.resolve(message);
   
 }
