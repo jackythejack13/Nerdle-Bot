@@ -1,13 +1,31 @@
 exports.run = async(client, message, args) => {
 
-  let totalSeconds = (client.uptime / 1000);
-  let days = Math.floor(totalSeconds / 86400);
-  let hours = Math.floor(totalSeconds / 3600);
-  let minutes = Math.floor(totalSeconds / 60);
-  let seconds = totalSeconds % 60;
-  
-  let uptime = `${days} d, ${hours} hr, ${minutes} mins, ${seconds} secs`;
-  
-  message.channel.send(`:stopwatch: Uptime: \`${uptime}``);
+	setInterval(function() {
+		upSecs = upSecs + 1
+		if (upSecs >= 60) {
+			var userdisplay = states[Math.floor(Math.random() * states.length)];
+			c.user.setStatus(userstatus)
+			c.user.setGame(userdisplay)
+			upSecs = 0
+			upMins = upMins + 1
+		}
+		if (upMins >= 60) {
+			upMins = 0
+			upHours = upHours + 1
+		}
+		if (upHours >= 24) {
+			upHours = 0
+			upDays = upDays + 1
+
+		}
+
+
+	}, 1000)
+
+
+
+});
+
+message.channel.send("```Current Uptime: \n" + upDays + " Days \n" + upHours + " Hours \n" + upMins + " Minutes \n" + upSecs + " Seconds```")
   
 }
