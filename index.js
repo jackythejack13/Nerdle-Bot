@@ -26,8 +26,13 @@ client.on('message', async message => {
 		// Auto-Reload
 		delete require.cache[require.resolve(`./commands/${cmd}.js`)];
 		
+		// Options
+		let ops = {
+			OwnerID: ownerID
+		}
+		
 		let commandFile = require(`./commands/${cmd}.js`);
-		commandFile.run(client, message, args);
+		commandFile.run(client, message, args, ops);
 		
 	} catch (e) {
 		console.log(e.stack);
