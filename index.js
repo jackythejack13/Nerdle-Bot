@@ -28,7 +28,7 @@ client.on('message', async message => {
 		
 		// Options
 		let ops = {
-			OwnerID: ownerID
+		    ownerID: ownerID
 		}
 		
 		let commandFile = require(`./commands/${cmd}.js`);
