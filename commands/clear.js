@@ -1,6 +1,5 @@
 exports.run = async(client, message, args) => {
    
-   message.delete();
    if(!message.member.hasPermission("MANAGE_MESSAGES")) return message.reply(`it doesn't look like you can use that. <:blobsmilesweat:460258466687352853>`);
    if(!args[0]) return message.channel.send("oof");
    message.channel.bulkDelete(args[0]).then(() => {
