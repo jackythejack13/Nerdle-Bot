@@ -1,6 +1,6 @@
 exports.run = (client, message, args, ops) => {
   
-  if(message.author.id !== ops.ownerID) return message.channel.send('Sorry, only **Jackohh#6423** can use this command.');
+  if(message.author.id !== ops.ownerID) return message.channel.send('Sorry, only **Jackohh** can use this command.');
   
   try {
       delete require.cache[require.resolve(`./${arg[0]}.js`)];
