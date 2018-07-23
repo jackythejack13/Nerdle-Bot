@@ -5,6 +5,6 @@ exports.run = (client, message, args) => {
 	
 	let result = Math.floor((Math.random() * replies.length));
 	
-	message.channel.send(`:8ball: | ${replies[result]}, **${message.author.username}**`);
+	message.channel.send(`:8ball: |  ${replies[result]}, **${message.author.username}**.`);
 	
 }
