@@ -10,6 +10,10 @@
   "license": "ISC",
   "dependencies": {
     "ascii-art": "^1.4.3",
-    "discord.js": "^11.3.2"
+    "dateformat": "^3.0.3",
+    "discord.js": "^11.3.2",
+    "ffmpeg-binaries": "^4.0.0",
+    "superagent": "^3.8.3",
+    "ytdl-core": "^0.20.4"
   }
 }
