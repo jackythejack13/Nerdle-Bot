@@ -1,10 +1,12 @@
 const Discord = require('discord.js');
 
-exports.run = async(client, message, args) => {
-  
-  const embed = new Discord.MessageEmbed()
-  .setColor(0x1A7939)
-  .addField('Uptime', `${client.ping / 1000} seconds`)
-  message.channel.send({ embed });
-  
+exports.run = async (client, message, args, ops) => {
+	
+	const embed = new Discord.RichEmbed()
+	.setColor('#1A7939')
+	.addField('Uptime', + (Math.round(client.uptime / (1000 * 60 * 60))) + " hr, " + (Math.round(client.uptime / (1000 * 60)) % 60) + " min, " + (Math.round(client.uptime / 1000) % 60) + " sec")
+	.setFooter("Last started on " + client.readyAt) 
+	
+	message.channel.send(embed)
+	
 }
