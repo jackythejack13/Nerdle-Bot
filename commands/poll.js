@@ -1,6 +1,6 @@
 const Discord = require('discord.js');
 
-exports.run = async (client, message, msg, args) => {
+exports.run = async (client, message, args) => {
 
   if (!message.member.hasPermission('MANAGE_MESSAGES')) return message.channel.send(`${message.author.username}, it doesn't look like you can use that.`);
   
@@ -11,7 +11,7 @@ exports.run = async (client, message, msg, args) => {
   .setDescription(`**${args.join(' ')}**`)
   .setTitle('Poll');
   
-  let msg = await message.channel.send(embed);
+  message.channel.send(embed);
   
   await msg.react('👍');
   await msg.react('👎');
