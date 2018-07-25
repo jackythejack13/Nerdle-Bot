@@ -12,7 +12,7 @@ exports.run = async(client, message, args, tools) => {
   .setDescription(`**${args.join(' ')}**`)
   .setTitle('Poll ');
   
-  let msg = message.channel.send(embed);
+  let msg = await message.channel.send(embed);
   
   await msg.react('👍');
   await msg.react('👎');
