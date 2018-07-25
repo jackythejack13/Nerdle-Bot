@@ -6,7 +6,7 @@ exports.run = async (client, message, msg, args) => {
   
   if (!args[0]) return message.channel.send('**Usage**: !!poll <question>');
   
-  const embed = new Discord.RichEmbed()
+  const embed = new Discord.MessageEmbed()
   .setFooter(`From ${message.author.username}#${message.author.discriminator}`)
   .setDescription(`**${args.join(' ')}**`)
   .setTitle('Poll');
