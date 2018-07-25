@@ -11,7 +11,7 @@ exports.run = async (client, message, args) => {
   .setDescription(`**${args.join(' ')}**`)
   .setTitle('Poll');
   
-  message.channel.send(embed);
+  let msg = await message.channel.send(embed);
   
   await msg.react('👍');
   await msg.react('👎');
